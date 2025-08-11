@@ -49,12 +49,12 @@ console.log(director1);
 // numberOfReports: 17
 
 // Interface for the printTeacher function
-function printTeacher {
+interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
 // Implementation of the function
-const printTeacher: printTeacher = (firstName, lastName) => {
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
@@ -89,6 +89,7 @@ class StudentClass implements StudentInterface {
 const student1 = new StudentClass("Alice", "Johnson");
 console.log(student1.displayName());      // Output: Alice
 console.log(student1.workOnHomework());   // Output: Currently working
+
 
 
 
