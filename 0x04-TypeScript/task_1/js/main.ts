@@ -1,4 +1,4 @@
-interface teacher {
+interface Teacher {
 readonly firstName: string;
 readonly lastName: string;
 fullTimeEmployee: boolean;
@@ -89,3 +89,4 @@ class StudentClass implements StudentInterface {
 const student1 = new StudentClass("Alice", "Johnson");
 console.log(student1.displayName());      // Output: Alice
 console.log(student1.workOnHomework());   // Output: Currently working
+
