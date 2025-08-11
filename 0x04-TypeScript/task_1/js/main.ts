@@ -26,12 +26,12 @@ console.log(teacher3);
 // lastName: "Doe"
 // location: "London"
 
-interface Director extends teacher {
+interface Directors extends teacher {
     numberOfReports: number;
 }
 
 //example usage 2 :
-const director1: Director = {
+const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -89,5 +89,6 @@ class StudentClass implements StudentInterface {
 const student1 = new StudentClass("Alice", "Johnson");
 console.log(student1.displayName());      // Output: Alice
 console.log(student1.workOnHomework());   // Output: Currently working
+
 
 
