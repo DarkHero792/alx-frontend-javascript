@@ -38,14 +38,12 @@ interface printTeacherFunction {
 }
 
 // Implementation EXACTLY matching checker requirements
-function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName[0]}. ${lastName}`;
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName}. ${lastName}`;
 }
 
 // Assigning the function to match the interface type
-const printTeacherTyped: printTeacherFunction = (firstName, lastName) => {
-  return printTeacher({ firstName, lastName });
-};
+const printTeacherTyped: printTeacherFunction = printTeacher;
 
 // Example usage 3:
 console.log(printTeacherTyped("John", "Doe")); // Output: J. Doe
