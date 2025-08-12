@@ -38,12 +38,13 @@ interface printTeacherFunction {
 }
 
 // Implementation EXACTLY matching checker requirements
-function printTeacher(firstName: string, lastName: string): string {
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName}. ${lastName}`;
 }
 
 // Assigning the function to match the interface type
-const printTeacherTyped: printTeacherFunction = printTeacher;
+const printTeacherTyped: printTeacherFunction = (firstName, lastName) =>
+  printTeacher({ firstName, lastName });
 
 // Example usage 3:
 console.log(printTeacherTyped("John", "Doe")); // Output: J. Doe
@@ -76,4 +77,3 @@ class StudentClass implements StudentInterface {
 const student1 = new StudentClass("Alice", "Johnson");
 console.log(student1.displayName());      // Output: Alice
 console.log(student1.workOnHomework());   // Output: Currently working
-
