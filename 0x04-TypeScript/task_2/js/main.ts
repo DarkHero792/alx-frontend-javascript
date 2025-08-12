@@ -46,11 +46,6 @@ function createEmployee(salary: number | string): Director | Teacher {
     }
 }
 
-// Example usage
-console.log(createEmployee(200));   // Teacher
-console.log(createEmployee(1000));  // Director
-console.log(createEmployee('$500')); // Director
-
 function isDirector(employee: Director | Teacher): employee is Director {
     return employee instanceof Director;
 }
@@ -63,6 +58,6 @@ function executeWork(employee: Director | Teacher) {
     }
 }
 
-// Test cases
+// Example usage
 console.log(executeWork(createEmployee(200)));    // Getting to work
 console.log(executeWork(createEmployee(1000)));   // Getting to director tasks
