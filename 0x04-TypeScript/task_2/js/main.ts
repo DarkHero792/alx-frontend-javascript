@@ -57,6 +57,20 @@ function executeWork(employee: Director | Teacher) {
   }
 }
 
+// ===== New code for checker requirements =====
+export enum Subjects {
+  Math = 'Math',
+  History = 'History'
+}
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === Subjects.Math) {
+    return 'Teaching Math';
+  }
+  return 'Teaching History';
+}
+// =============================================
+
 // Example usage
 console.log(createEmployee(200));      // Teacher
 console.log(createEmployee(1000));     // Director
@@ -64,3 +78,6 @@ console.log(createEmployee('$500'));   // Director
 
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
+
+console.log(teachClass(Subjects.Math));    // Teaching Math
+console.log(teachClass(Subjects.History)); // Teaching History
