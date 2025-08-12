@@ -49,7 +49,7 @@ export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
-function executeWork(employee: Director | Teacher) {
+export function executeWork(employee: Director | Teacher) {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
@@ -57,19 +57,19 @@ function executeWork(employee: Director | Teacher) {
   }
 }
 
-// ===== New code for checker requirements =====
+// ===== Checker-required code =====
 export enum Subjects {
   Math = 'Math',
   History = 'History'
 }
 
-export function teachClass(todayClass: Subjects): string {
+export function teachClass(todayClass:Subjects): string {
   if (todayClass === Subjects.Math) {
     return 'Teaching Math';
   }
   return 'Teaching History';
 }
-// =============================================
+// ==================================
 
 // Example usage
 console.log(createEmployee(200));      // Teacher
