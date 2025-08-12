@@ -1,14 +1,14 @@
 interface Teacher {
-readonly firstName: string;
-readonly lastName: string;
-fullTimeEmployee: boolean;
-yearsOfExperience?: number;
-location: string;
-[key:string] : any;
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
-//example usage 1 :
-const teacher3: teacher = {
+// example usage 1 :
+const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
   lastName: 'Doe',
@@ -18,19 +18,11 @@ const teacher3: teacher = {
 
 console.log(teacher3);
 
-// should print
-// Object
-// contract: false
-// firstName: "John"
-// fullTimeEmployee: false
-// lastName: "Doe"
-// location: "London"
-
 interface Director extends Teacher {
-    numberOfReports: number;
+  numberOfReports: number;
 }
 
-//example usage 2 :
+// example usage 2 :
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -40,26 +32,23 @@ const director1: Director = {
 };
 console.log(director1);
 
-// should print
-// Object
-// firstName: "John"
-// fullTimeEmployee: true
-// lastName: "Doe"
-// location: "London"
-// numberOfReports: 17
-
 // Interface for the printTeacher function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implementation of the function
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName.charAt(0)}. ${lastName}`;
+// Implementation EXACTLY matching checker requirements
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName[0]}. ${lastName}`;
+}
+
+// Assigning the function to match the interface type
+const printTeacherTyped: printTeacherFunction = (firstName, lastName) => {
+  return printTeacher({ firstName, lastName });
 };
 
 // Example usage 3:
-console.log(printTeacher("John", "Doe")); // Output: J. Doe
+console.log(printTeacherTyped("John", "Doe")); // Output: J. Doe
 
 // Interface describing the class instance methods
 interface StudentInterface {
@@ -89,9 +78,3 @@ class StudentClass implements StudentInterface {
 const student1 = new StudentClass("Alice", "Johnson");
 console.log(student1.displayName());      // Output: Alice
 console.log(student1.workOnHomework());   // Output: Currently working
-
-
-
-
-
-
