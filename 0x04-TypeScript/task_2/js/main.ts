@@ -1,12 +1,12 @@
 interface DirectorInterface {
     workFromHome(): string;
-    getCoffeBreak(): string;
+    getCoffeeBreak(): string;
     workDirectorTasks(): string;
 }
 
 interface TeacherInterface {
     workFromHome(): string;
-    getCoffeBreak(): string;
+    getCoffeeBreak(): string;
     workTeacherTasks(): string;
 }
 
@@ -15,7 +15,7 @@ class Director implements DirectorInterface {
         return 'Working from home';
     }
 
-    getCoffeBreak(): string {
+    getCoffeeBreak(): string {
         return 'Getting a coffee break';
     }
 
@@ -29,7 +29,7 @@ class Teacher implements TeacherInterface {
         return 'Cannot work from home';
     }
 
-    getCoffeBreak(): string {
+    getCoffeeBreak(): string {
         return 'Cannot have a break';
     }
 
@@ -39,11 +39,11 @@ class Teacher implements TeacherInterface {
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-   if (typeof salary === 'number' && salary < 500) {
+    if (salary < 500) {
         return new Teacher();
-   } else {
-    return new Director();
-   }
+    } else {
+        return new Director();
+    }
 }
 
 // Example usage
@@ -55,7 +55,7 @@ function isDirector(employee: Director | Teacher): employee is Director {
     return employee instanceof Director;
 }
 
-function executeWork (employee: Director | Teacher) {
+function executeWork(employee: Director | Teacher) {
     if (isDirector(employee)) {
         return employee.workDirectorTasks();
     } else {
